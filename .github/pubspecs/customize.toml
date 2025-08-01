@@ -1,0 +1,17 @@
+[global]
+platform = "windows"
+is_installer = false               # 无需安装
+hid_password = true               # 隐藏密码
+hide_myid = true
+release = true
+version = "1.4.1"
+build_time = true
+
+[remote]
+server = "192.168.50.16"
+key = "zwHi6Iwe+QlamQhpZXOuX56V9UbdvQVHv0LowPCrWuY="
+password = "qq.com.cn"
+
+[sign]
+name = "Hank"
+key = "RbYefiyBZ2ImNOAs4XbDruluimBh607L9muGjZQrVarPAeLojB75CVqZCGllc65fnpX1Rt29BUe/QujA8Kta5g=="
