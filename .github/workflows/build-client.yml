@@ -8,26 +8,28 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
-    - name: Set up Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        override: true
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
 
-    - name: Install dependencies
-      run: |
-        choco install -y nsis
+      - name: Install dependencies
+        run: |
+          choco install -y nsis
 
-    - name: Build RustDesk client (release)
-      run: |
-        git submodule update --init --recursive
-        cd rustdesk
-        cargo build --release --target x86_64-pc-windows-msvc
+      - name: Build RustDesk Client
+        run: |
+          cd rustdesk
+          cargo build --release --target x86_64-pc-windows-msvc
 
-    - name: Upload .exe
-      uses: actions/upload-artifact@v4
-      with:
-        name: rustdesk-client
-        path: rustdesk/target/x86_64-pc-windows-msvc/release/rustdesk.exe
+      - name: Upload rustdesk.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: rustdesk-client
+          path: rustdesk/target/x86_64-pc-windows-msvc/release/rustdesk.exe
