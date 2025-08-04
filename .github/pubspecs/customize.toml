@@ -1,0 +1,12 @@
+[global]
+server = "192.168.50.16"
+key = "zwHi6Iwe+QlamQhpZXOuX56V9UbdvQVHv0LowPCrWuY="
+password = "qq.com.cn"
+
+[package]
+name = "RustDesk"
+display_name = "被控端客户端"
+publisher = "Hank"
+
+[target.'cfg(windows)']
+portable = true
